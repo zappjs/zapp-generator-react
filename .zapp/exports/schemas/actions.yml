@@ -1,0 +1,11 @@
+type: object
+additionalProperties:
+  type: object
+  properties:
+    arguments:
+      type: object
+      additionalProperties:
+        type: object
+    dispatch:
+      type: object
+      additionalProperties: {}

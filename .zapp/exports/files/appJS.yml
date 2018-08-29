@@ -1,0 +1,8 @@
+filename: src/App.jsx
+template: app
+engine: handlebars
+mapping:
+  routes: /routes
+  reducers: /reducers
+  pages: /pages
+  templates: /templates

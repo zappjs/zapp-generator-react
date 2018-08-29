@@ -1,0 +1,10 @@
+iterator: pages
+engine: handlebars
+template: style
+mapping:
+  styles: ./styles
+filename:
+  engine: handlebars
+  template: 'src/pages/{{{case name ''kebab''}}}/{{{case name ''pascal''}}}.sass'
+  mapping:
+    name: '@key'

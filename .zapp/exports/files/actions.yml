@@ -1,0 +1,16 @@
+template: action
+engine: handlebars
+iterator: actions
+filename:
+  engine: handlebars
+  template: 'src/actions/{{{case name ''camel''}}}.js'
+  mapping:
+    name: '@key'
+mapping:
+  name: '@key'
+  operations: ./operations
+  dispatch: ./dispatch
+  arguments: ./arguments
+  handler: ./handler
+  imports: ./imports
+  allImports: /imports

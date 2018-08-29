@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/" />
+  <meta charset="UTF-8">
+  {{#if description}}
+  <meta name="description" content="{{{description}}}" />
+  {{/if}}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{#if description}}
+  <meta property="og:description" content="{{{description}}}" />
+  {{/if}}
+  {{#if image}}
+  <meta property="og:image" content="{{{image}}}" />
+  {{/if}}
+  {{#if title}}
+  <meta property="og:title" content="{{{title}}}" />
+  {{/if}}
+  {{#if type}}
+  <meta property="og:type" content="{{{type}}}" />
+  {{/if}}
+  {{#if homepage}}
+  <meta property="og:url" content="{{{homepage}}}" />
+  {{/if}}
+  {{#if analytics}}
+  {{#eq analytics.type 'ga'}}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{{analytics.id}}}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{{analytics.id}}}');
+  </script>
+  {{/eq}}
+  {{/if}}
+  <title>{{{title}}}</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="index.js"></script>
+</body>
+</html>

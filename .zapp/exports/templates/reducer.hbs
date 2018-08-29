@@ -1,0 +1,37 @@
+const initialState = {
+  {{#each state}}
+  {{{@key}}}: {{#if this.default}}{{{json this.default 1}}}{{else}}{{#eq type 'array'}}[]{{/eq}}{{#eq type 'boolean'}}false{{/eq}}{{#eq type 'object'}}{}{{/eq}}{{#eq type 'string'}}''{{/eq}}{{/if}}{{#unless @last}},{{/unless}}
+  {{/each}}
+};
+
+export default function {{#if name}}{{{name}}}{{else}}{{{case key 'camel'}}}{{/if}}Reducer(state = initialState, action = {}) {
+  switch (action.type) {
+    {{#each actions}}
+    case '{{{@key}}}': {
+      {{#typeof this 'code'}}
+      {{{json this 3 'javascript'}}}
+      {{else}}
+      {{#each this}}
+      const {{{@key}}} = {{#eq method 'append'}}state.{{{@key}}}.slice();
+      {{{@key}}}.push(action.{{{value}}}){{/eq}}{{#eq method 'replace'}}state.{{{@key}}}.slice();
+      const new{{{case @key 'pascal'}}}Data = {{{json value 3 'javascript'}}};
+      {{{@key}}}.splice(action.{{{index}}}, 1, {
+        ...{{{@key}}}[action.{{{index}}}],
+        ...new{{{case @key 'pascal'}}}Data
+      });{{/eq}}{{#eq method 'remove'}}state.{{{@key}}}.slice();
+      {{{@key}}}.splice(action.{{{index}}}, 1);{{/eq}}
+      {{/each}}
+      return {
+        ...state,
+        {{#each this}}
+        {{{@key}}}{{#unless @last}},{{/unless}}
+        {{/each}}
+      };
+      {{/typeof}}
+    }
+    {{/each}}
+    default: {
+      return state;
+    }
+  }
+}

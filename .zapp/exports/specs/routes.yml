@@ -1,0 +1,6 @@
+/:
+  template: main
+  paths:
+    home:
+      index: true
+      page: home

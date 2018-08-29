@@ -1,0 +1,32 @@
+{{#if imports}}
+{{#each imports}}
+{{#import this ../allImports '../..'}}
+import {{{name}}} from '{{{module}}}';
+{{/import}}
+{{/each}}
+
+{{/if}}
+export default function {{{name}}}({{#if arguments}}{
+{{#each arguments}}
+  {{{@key}}} = {{{json this 1 'javascript'}}}{{#unless @last}},{{/unless}}
+{{/each}}
+} = {}{{/if}}) {
+  {{#if handler}}
+  return async (dispatch) => {
+    {{{json handler 2 'javascript'}}}
+  };
+  {{else}}
+  {{#if dispatch}}
+  return {{{json dispatch 1 'javascript'}}};
+  {{else}}
+  return (dispatch) => {
+    return Bluebird.resolve()
+      {{#each operations}}
+      .then(() => {
+        dispatch({{{json dispatch 4 'javascript'}}});
+      }){{#if @last}};{{/if}}
+      {{/each}}
+  };
+  {{/if}}
+  {{/if}}
+}

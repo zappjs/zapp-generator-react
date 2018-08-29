@@ -1,0 +1,25 @@
+{{#each styles}}
+{{#eq @key '@import'}}
+{{#each this}}
+@import url({{{this}}})
+{{/each}}
+
+{{/eq}}
+{{/each}}
+{{#each styles}}
+{{#if selectors}}
+{{#each selectors}}{{{this}}}{{#unless @last}}, {{/unless}}{{/each}}
+  {{#each this}}
+  {{#ne @key 'selectors'}}
+  {{{case @key 'kebab'}}}: {{{this}}}
+  {{/ne}}
+  {{/each}}
+{{else}}
+{{#ne @key '@import'}}
+.{{{@key}}}
+  {{#each this}}
+  {{{case @key 'kebab'}}}: {{{this}}}
+  {{/each}}
+{{/ne}}
+{{/if}}
+{{/each}}

@@ -1,0 +1,872 @@
+type: object
+additionalProperties:
+  type: object
+  properties:
+    fontVariantNumeric:
+      description: >-
+        Controls the usage of alternate glyphs for numbers, fractions, and
+        ordinal markers
+      type: string
+    selectors:
+      type: array
+    alignItems:
+      description: Specifies the alignment for items inside a flexible container
+      type: string
+    alignSelf:
+      description: >-
+        Specifies the alignment for selected items inside a flexible
+        container
+      type: string
+    all:
+      description: Resets all properties (except unicode-bidi and direction)
+      type: string
+    animation:
+      description: A shorthand property for all the animation properties
+      type: string
+    animationDelay:
+      description: Specifies a delay for the start of an animation
+      type: string
+    animationDirection:
+      description: >-
+        Specifies whether an animation should be played forwards, backwards
+        or in alternate cycles
+      type: string
+    animationDuration:
+      description: Specifies how long an animation should take to complete one cycle
+      type: string
+    animationFillMode:
+      description: >-
+        Specifies a style for the element when the animation is not playing
+        (before it starts, after it ends, or both)
+      type: string
+    animationIterationCount:
+      description: Specifies the number of times an animation should be played
+      type: string
+    animationName:
+      description: Specifies a name for the @keyframes animation
+      type: string
+    animationPlayState:
+      description: Specifies whether the animation is running or paused
+      type: string
+    animationTimingFunction:
+      description: Specifies the speed curve of an animation
+      type: string
+    backfaceVisibility:
+      description: >-
+        Defines whether or not the back face of an element should be visible
+        when facing the user
+      type: string
+    background:
+      description: >-
+        A shorthand property for setting all the background properties in
+        one declaration
+      type: string
+    backgroundAttachment:
+      description: >-
+        Sets whether a background image scrolls with the rest of the page,
+        or is fixed
+      type: string
+    backgroundBlendMode:
+      description: Specifies the blending mode of each background layer (color/image)
+      type: string
+    backgroundClip:
+      description: >-
+        Defines how far the background (color or image) should extend within
+        an element
+      type: string
+    backgroundColor:
+      description: Specifies the background color of an element
+      type: string
+    backgroundImage:
+      description: Specifies one or more background images for an element
+      type: string
+    backgroundOrigin:
+      description: Specifies the origin position of a background image
+      type: string
+    backgroundPosition:
+      description: Specifies the position of a background image
+      type: string
+    backgroundRepeat:
+      description: Sets if/how a background image will be repeated
+      type: string
+    backgroundSize:
+      description: Specifies the size of the background images
+      type: string
+    border:
+      description: 'A shorthand property for border-width, border-style and border-color'
+      type: string
+    borderBottom:
+      description: >-
+        A shorthand property for setting all the bottom border properties in
+        one declaration
+      type: string
+    borderBottomColor:
+      description: Sets the color of the bottom border
+      type: string
+    borderBottomLeftRadius:
+      description: Defines the radius of the border of the bottom-left corner
+      type: string
+    borderBottomRightRadius:
+      description: Defines the radius of the border of the bottom-right corner
+      type: string
+    borderBottomStyle:
+      description: Sets the style of the bottom border
+      type: string
+    borderBottomWidth:
+      description: Sets the width of the bottom border
+      type: string
+    borderCollapse:
+      description: >-
+        Sets whether table borders should collapse into a single border or
+        be separated
+      type: string
+    borderColor:
+      description: Sets the color of the four borders
+      type: string
+    borderImage:
+      description: A shorthand property for setting all the border-image-* properties
+      type: string
+    borderImageOutset:
+      description: >-
+        Specifies the amount by which the border image area extends beyond
+        the border box
+      type: string
+    borderImageRepeat:
+      description: >-
+        Specifies whether the border image should be repeated, rounded or
+        stretched
+      type: string
+    borderImageSlice:
+      description: Specifies how to slice the border image
+      type: string
+    borderImageSource:
+      description: Specifies the path to the image to be used as a border
+      type: string
+    borderImageWidth:
+      description: Specifies the width of the border image
+      type: string
+    borderLeft:
+      description: >-
+        A shorthand property for setting all the left border properties in
+        one declaration
+      type: string
+    borderLeftColor:
+      description: Sets the color of the left border
+      type: string
+    borderLeftStyle:
+      description: Sets the style of the left border
+      type: string
+    borderLeftWidth:
+      description: Sets the width of the left border
+      type: string
+    borderRadius:
+      description: >-
+        A shorthand property for setting all the four border-*-radius
+        properties
+      type: string
+    borderRight:
+      description: >-
+        A shorthand property for setting all the right border properties in
+        one declaration
+      type: string
+    borderRightColor:
+      description: Sets the color of the right border
+      type: string
+    borderRightStyle:
+      description: Sets the style of the right border
+      type: string
+    borderRightWidth:
+      description: Sets the width of the right border
+      type: string
+    borderSpacing:
+      description: Sets the distance between the borders of adjacent cells
+      type: string
+    borderStyle:
+      description: Sets the style of the four borders
+      type: string
+    borderTop:
+      description: >-
+        A shorthand property for setting all the top border properties in
+        one declaration
+      type: string
+    borderTopColor:
+      description: Sets the color of the top border
+      type: string
+    borderTopLeftRadius:
+      description: Defines the radius of the border of the top-left corner
+      type: string
+    borderTopStyle:
+      description: Sets the style of the top border
+      type: string
+    borderTopWidth:
+      description: Sets the width of the top border
+      type: string
+    borderWidth:
+      description: Sets the width of the four borders
+      type: string
+    bottom:
+      description: 'Sets the elements position, from the bottom of its parent element'
+      type: string
+    boxDecorationBreak:
+      description: >-
+        Sets the behavior of the background and border of an element at
+        page-break, or, for in-line elements, at line-break.
+      type: string
+    boxShadow:
+      description: Attaches one or more shadows to an element
+      type: string
+    boxSizing:
+      description: >-
+        Defines how the width and height of an element are calculated:
+        should they include padding and borders, or not
+      type: string
+    breakAfter:
+      description: >-
+        Specifies the page-, column-, or region-break behavior after the
+        generated box
+      type: string
+    breakBefore:
+      description: >-
+        Specifies the page-, column-, or region-break behavior before the
+        generated box
+      type: string
+    breakInside:
+      description: >-
+        Specifies the page-, column-, or region-break behavior inside the
+        generated box
+      type: string
+    captionSide:
+      description: Specifies the placement of a table caption
+      type: string
+    caretColor:
+      description: >-
+        Specifies the color of the cursor (caret) in inputs, textareas, or
+        any element that is editable
+      type: string
+    clear:
+      description: >-
+        Specifies on which sides of an element floating elements are not
+        allowed to float
+      type: string
+    clip:
+      description: Clips an absolutely positioned element
+      type: string
+    color:
+      description: Sets the color of text
+      type: string
+    columnCount:
+      description: Specifies the number of columns an element should be divided into
+      type: string
+    columnFill:
+      description: 'Specifies how to fill columns, balanced or not'
+      type: string
+    columnGap:
+      description: Specifies the gap between the columns
+      type: string
+    columnRule:
+      description: A shorthand property for setting all the column-rule-* properties
+      type: string
+    columnRuleColor:
+      description: Specifies the color of the rule between columns
+      type: string
+    columnRuleStyle:
+      description: Specifies the style of the rule between columns
+      type: string
+    columnRuleWidth:
+      description: Specifies the width of the rule between columns
+      type: string
+    columnSpan:
+      description: Specifies how many columns an element should span across
+      type: string
+    columnWidth:
+      description: Specifies the column width
+      type: string
+    columns:
+      description: A shorthand property for setting column-width and column-count
+      type: string
+    content:
+      description: >-
+        Used with the :before and :after pseudo-elements, to insert
+        generated content
+      type: string
+    counterIncrement:
+      description: Increases or decreases the value of one or more CSS counters
+      type: string
+    counterReset:
+      description: Creates or resets one or more CSS counters
+      type: string
+    cursor:
+      description: >-
+        Specifies the mouse cursor to be displayed when pointing over an
+        element
+      type: string
+    direction:
+      description: Specifies the text direction/writing direction
+      type: string
+      enum:
+        - ltr
+        - rtl
+        - initial
+        - inherit
+    display:
+      description: Specifies how a certain HTML element should be displayed
+      type: string
+      enum:
+        - inline
+        - block
+        - contents
+        - flex
+        - grid
+        - inline-block
+        - inline-flex
+        - inline-grid
+        - inline-table
+        - list-item
+        - run-in
+        - table
+        - table-caption
+        - table-column-group
+        - table-header-group
+        - table-footer-group
+        - table-row-group
+        - table-cell
+        - table-column
+        - table-row
+        - none
+        - initial
+        - inherit
+    emptyCells:
+      description: >-
+        Specifies whether or not to display borders and background on empty
+        cells in a table
+      type: string
+    filter:
+      description: >-
+        Defines effects (e.g. blurring or color shifting) on an element
+        before the element is displayed
+      type: string
+    flex:
+      description: >-
+        A shorthand property for the flex-grow, flex-shrink, and the
+        flex-basis properties
+      type: string
+    flexBasis:
+      description: Specifies the initial length of a flexible item
+      type: string
+    flexDirection:
+      description: Specifies the direction of the flexible items
+      type: string
+      enum:
+        - row
+        - row-reverse
+        - column
+        - column-reverse
+        - initial
+        - inherit
+    flexFlow:
+      description: >-
+        A shorthand property for the flex-direction and the flex-wrap
+        properties
+      type: string
+    flexGrow:
+      description: Specifies how much the item will grow relative to the rest
+      type: string
+    flexShrink:
+      description: Specifies how the item will shrink relative to the rest
+      type: string
+    flexWrap:
+      description: Specifies whether the flexible items should wrap or not
+      type: string
+    float:
+      description: Specifies whether or not a box should float
+      type: string
+      enum:
+        - none
+        - left
+        - right
+        - initial
+        - inherit
+    font:
+      description: Sets all the font properties in one declaration
+      type: string
+    fontFamily:
+      description: Specifies the font family for text
+      type: string
+    fontFeatureSettings:
+      description: Allows control over advanced typographic features in OpenType fonts
+      type: string
+    fontKerning:
+      description: >-
+        Controls the usage of the kerning information (how letters are
+        spaced)
+      type: string
+    fontLanguageOverride:
+      description: Controls the usage of language-specific glyphs in a typeface
+      type: string
+    fontSize:
+      description: Specifies the font size of text
+      type: string
+    fontSizeAdjust:
+      description: Preserves the readability of text when font fallback occurs
+      type: string
+    fontStretch:
+      description: 'Selects a normal, condensed, or expanded face from a font family'
+      type: string
+    fontStyle:
+      description: Specifies the font style for text
+      type: string
+    fontSynthesis:
+      description: >-
+        Controls which missing typefaces (bold or italic) may be synthesized
+        by the browser
+      type: string
+    fontVariant:
+      description: >-
+        Specifies whether or not a text should be displayed in a small-caps
+        font
+      type: string
+    fontVariantAlternates:
+      description: >-
+        Controls the usage of alternate glyphs associated to alternative
+        names defined in @font-feature-values
+      type: string
+    fontVariantCaps:
+      description: Controls the usage of alternate glyphs for capital letters
+      type: string
+    fontVariantEastAsian:
+      description: >-
+        Controls the usage of alternate glyphs for East Asian scripts (e.g
+        Japanese and Chinese)
+      type: string
+    fontVariantLigatures:
+      description: >-
+        Controls which ligatures and contextual forms are used in textual
+        content of the elements it applies to
+      type: string
+    alignContent:
+      description: >-
+        Specifies the alignment between the lines inside a flexible
+        container when the items do not use all available space
+      type: string
+    fontVariantPosition:
+      description: >-
+        Controls the usage of alternate glyphs of smaller size positioned as
+        superscript or subscript regarding the baseline of the font
+      type: string
+    fontWeight:
+      description: Specifies the weight of a font
+      type: string
+    grid:
+      description: A shorthand property
+      type: string
+    gridArea:
+      description: >-
+        Either specifies a name for the grid item, or this property is a
+        shorthand property for the grid-row-start, grid-column-start,
+        grid-row-end, and grid-column-end properties
+      type: string
+    gridAutoColumns:
+      description: Specifies a default column size
+      type: string
+    gridAutoFlow:
+      description: Specifies how auto-placed items are inserted in the grid
+      type: string
+    gridAutoRows:
+      description: Specifies a default row size
+      type: string
+    gridColumn:
+      description: >-
+        A shorthand property for the grid-column-start and the
+        grid-column-end properties
+      type: string
+    gridColumnEnd:
+      description: Specifies where to end the grid item
+      type: string
+    gridColumnGap:
+      description: Specifies the size of the gap between columns
+      type: string
+    gridColumnStart:
+      description: Specifies where to start the grid item
+      type: string
+    gridGap:
+      description: >-
+        A shorthand property for the grid-row-gap and grid-column-gap
+        properties
+      type: string
+    gridRow:
+      description: >-
+        A shorthand property for the grid-row-start and the grid-row-end
+        properties
+      type: string
+    gridRowEnd:
+      description: Specifies where to end the grid item
+      type: string
+    gridRowGap:
+      description: Specifies the size of the gap between rows
+      type: string
+    gridRowStart:
+      description: Specifies where to start the grid item
+      type: string
+    gridTemplate:
+      description: >-
+        A shorthand property for the grid-template-rows,
+        grid-template-columns and grid-areas properties
+      type: string
+    gridTemplateAreas:
+      description: 'Specifies how to display columns and rows, using named grid items'
+      type: string
+    gridTemplateColumns:
+      description: >-
+        Specifies the size of the columns, and how many columns in a grid
+        layout
+      type: string
+    gridTemplateRows:
+      description: Specifies the size of the rows in a grid layout
+      type: string
+    hangingPunctuation:
+      description: >-
+        Specifies whether a punctuation character may be placed outside the
+        line box
+      type: string
+    height:
+      description: Sets the height of an element
+      type: string
+    hyphens:
+      description: Sets how to split words to improve the layout of paragraphs
+      type: string
+    imageRendering:
+      description: >-
+        Gives a hint to the browser about what aspects of an image are most
+        important to preserve when the image is scaled
+      type: string
+    isolation:
+      description: Defines whether an element must create a new stacking content
+      type: string
+    justifyContent:
+      description: >-
+        Specifies the alignment between the items inside a flexible
+        container when the items do not use all available space
+      type: string
+    left:
+      description: Specifies the left position of a positioned element
+      type: string
+    letterSpacing:
+      description: Increases or decreases the space between characters in a text
+      type: string
+    lineBreak:
+      description: Specifies how/if to break lines
+      type: string
+    lineHeight:
+      description: Sets the line height
+      type: string
+    listStyle:
+      description: Sets all the properties for a list in one declaration
+      type: string
+    listStyleImage:
+      description: Specifies an image as the list-item marker
+      type: string
+    listStylePosition:
+      description: Specifies the position of the list-item markers (bullet points)
+      type: string
+    listStyleType:
+      description: Specifies the type of list-item marker
+      type: string
+      enum:
+        - disc
+        - armenian
+        - circle
+        - cjk-ideographic
+        - decimal
+        - decimal-leading-zero
+        - georgian
+        - hebrew
+        - hiragana
+        - hiragana-iroha
+        - katakana
+        - katakana-iroha
+        - lower-alpha
+        - lower-greek
+        - lower-latin
+        - lower-roman
+        - none
+        - square
+        - upper-alpha
+        - upper-greek
+        - upper-latin
+        - upper-roman
+        - initial
+        - inherit
+    margin:
+      description: Sets all the margin properties in one declaration
+      type: string
+    marginBottom:
+      description: Sets the bottom margin of an element
+      type: string
+    marginLeft:
+      description: Sets the left margin of an element
+      type: string
+    marginRight:
+      description: Sets the right margin of an element
+      type: string
+    marginTop:
+      description: Sets the top margin of an element
+      type: string
+    maxHeight:
+      description: Sets the maximum height of an element
+      type: string
+    maxWidth:
+      description: Sets the maximum width of an element
+      type: string
+    minHeight:
+      description: Sets the minimum height of an element
+      type: string
+    minWidth:
+      description: Sets the minimum width of an element
+      type: string
+    objectFit:
+      description: >-
+        Specifies how the contents of a replaced element should be fitted to
+        the box established by its used height and width
+      type: string
+    objectPosition:
+      description: Specifies the alignment of the replaced element inside its box
+      type: string
+    opacity:
+      description: Sets the opacity level for an element
+      type: string
+    order:
+      description: 'Sets the order of the flexible item, relative to the rest'
+      type: string
+    orphans:
+      description: >-
+        Sets the minimum number of lines that must be left at the bottom of
+        a page when a page break occurs inside an element
+      type: string
+    outline:
+      description: Sets all the outline properties in one declaration
+      type: string
+    outlineColor:
+      description: Sets the color of an outline
+      type: string
+    outlineOffset:
+      description: 'Offsets an outline, and draws it beyond the border edge'
+      type: string
+    outlineStyle:
+      description: Sets the style of an outline
+      type: string
+    outlineWidth:
+      description: Sets the width of an outline
+      type: string
+    overflow:
+      description: Specifies what happens if content overflows an element's box
+      type: string
+    overflowWrap:
+      description: >-
+        Specifies whether or not the browser may break lines within words in
+        order to prevent overflow (when a string is too long to fit its
+        containing box)
+      type: string
+    overflowX:
+      description: >-
+        Specifies whether or not to clip the left/right edges of the
+        content, if it overflows the element's content area
+      type: string
+    overflowY:
+      description: >-
+        Specifies whether or not to clip the top/bottom edges of the
+        content, if it overflows the element's content area
+      type: string
+    padding:
+      description: Sets all the padding properties in one declaration
+      type: string
+    paddingBottom:
+      description: Sets the bottom padding of an element
+      type: string
+    paddingLeft:
+      description: Sets the left padding of an element
+      type: string
+    paddingRight:
+      description: Sets the right padding of an element
+      type: string
+    paddingTop:
+      description: Sets the top padding of an element
+      type: string
+    pageBreakAfter:
+      description: Sets the page-breake behavior after an element
+      type: string
+    pageBreakBefore:
+      description: Sets the page-breake behavior before an element
+      type: string
+    pageBreakInside:
+      description: Sets the page-breake behavior inside an element
+      type: string
+    perspective:
+      description: Gives a 3D-positioned element some perspective
+      type: string
+    perspectiveOrigin:
+      description: >-
+        Defines at which position the user is looking at the 3D-positioned
+        element
+      type: string
+    pointerEvents:
+      description: Defines whether or not an element reacts to pointer events
+      type: string
+    position:
+      description: >-
+        Specifies the type of positioning method used for an element
+        (static, relative, absolute or fixed)
+      type: string
+    quotes:
+      description: Sets the type of quotation marks for embedded quotations
+      type: string
+    resize:
+      description: Defines if (and how) an element is resizable by the user
+      type: string
+    right:
+      description: Specifies the right position of a positioned element
+      type: string
+    tabSize:
+      description: Specifies the width of a tab character
+      type: string
+    tableLayout:
+      description: 'Defines the algorithm used to lay out table cells, rows, and columns'
+      type: string
+    textAlign:
+      description: Specifies the horizontal alignment of text
+      type: string
+    textAlignLast:
+      description: >-
+        Describes how the last line of a block or a line right before a
+        forced line break is aligned when text-align is "justify"
+      type: string
+    textCombineUpright:
+      description: >-
+        Specifies the combination of multiple characters into the space of a
+        single character
+      type: string
+    textDecoration:
+      description: Specifies the decoration added to text
+      type: string
+    textDecorationColor:
+      description: Specifies the color of the text-decoration
+      type: string
+    textDecorationLine:
+      description: Specifies the type of line in a text-decoration
+      type: string
+      enum:
+        - none
+        - underline
+        - overline
+        - line-through
+        - initial
+        - inherit
+    textDecorationStyle:
+      description: Specifies the style of the line in a text decoration
+      type: string
+      enum:
+        - solid
+        - double
+        - dotted
+        - dashed
+        - wavy
+        - initial
+        - inherit
+    textIndent:
+      description: Specifies the indentation of the first line in a text-block
+      type: string
+    textJustify:
+      description: Specifies the justification method used when text-align is "justify"
+      type: string
+    textOrientation:
+      description: Defines the orientation of the text in a line
+      type: string
+    textOverflow:
+      description: >-
+        Specifies what should happen when text overflows the containing
+        element
+      type: string
+    textShadow:
+      description: Adds shadow to text
+      type: string
+    textTransform:
+      description: Controls the capitalization of text
+      type: string
+    textUnderlinePosition:
+      description: >-
+        Specifies the position of the underline which is set using the
+        text-decoration property
+      type: string
+    top:
+      description: Specifies the top position of a positioned element
+      type: string
+    transform:
+      description: Applies a 2D or 3D transformation to an element
+      type: string
+    transformOrigin:
+      description: Allows you to change the position on transformed elements
+      type: string
+    transformStyle:
+      description: Specifies how nested elements are rendered in 3D space
+      type: string
+    transition:
+      description: A shorthand property for setting the four transition properties
+      type: string
+    transitionDelay:
+      description: Specifies when the transition effect will start
+      type: string
+    transitionDuration:
+      description: >-
+        Specifies how many seconds or milliseconds a transition effect takes
+        to complete
+      type: string
+    transitionProperty:
+      description: Specifies the name of the CSS property the transition effect is for
+      type: string
+    transitionTimingFunction:
+      description: Specifies the speed curve of the transition effect
+      type: string
+    unicodeBidi:
+      description: >-
+        Used together with the direction property to set or return whether
+        the text should be overridden to support multiple languages in the
+        same document
+      type: string
+    userSelect:
+      description: Specifies whether the text of an element can be selected
+      type: string
+    verticalAlign:
+      description: Sets the vertical alignment of an element
+      type: string
+    visibility:
+      description: Specifies whether or not an element is visible
+      type: string
+    whiteSpace:
+      description: Specifies how white-space inside an element is handled
+      type: string
+    widows:
+      description: >-
+        Sets the minimum number of lines that must be left at the top of a
+        page when a page break occurs inside an element
+      type: string
+    width:
+      description: Sets the width of an element
+      type: string
+    wordBreak:
+      description: Specifies how words should break when reaching the end of a line
+      type: string
+    wordSpacing:
+      description: Increases or decreases the space between words in a text
+      type: string
+    wordWrap:
+      description: >-
+        Allows long, unbreakable words to be broken and wrap to the next
+        line
+      type: string
+    writingMode:
+      description: >-
+        Specifies whether lines of text are laid out horizontally or
+        vertically
+      type: string
+    zIndex:
+      description: Sets the stack order of a positioned element
+      type: string

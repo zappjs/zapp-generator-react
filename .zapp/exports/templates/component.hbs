@@ -1,0 +1,135 @@
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React, { Component, Fragment } from 'react';
+{{#if props}}
+import { connect } from 'react-redux';
+{{/if}}
+
+{{#each dispatchProps}}
+import {{{case dispatch 'camel'}}}Action from '../../actions/{{{case dispatch 'camel'}}}';
+
+{{/each}}
+import styles from './{{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}}.sass';
+{{#if imports}}
+
+{{#each imports}}
+{{#import this ../allImports '../../..'}}
+import {{{name}}} from '{{{module}}}';
+{{/import}}
+{{/each}}
+{{/if}}
+
+class {{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}} extends Component {
+  {{#if state}}
+  constructor(props) {
+    super(props);
+    this.state = {
+      {{#each state}}
+      {{{@key}}}: {{#ne this.default undefined}}{{{json this.default 1 'javascript'}}}{{else}}{{#eq type 'array'}}[]{{/eq}}{{#eq type 'boolean'}}false{{/eq}}{{#eq type 'func'}}() => {}{{/eq}}{{#eq type 'null'}}null{{/eq}}{{#eq type 'number'}}-1{{/eq}}{{#eq type 'string'}}''{{/eq}}{{#eq type 'undefined'}}undefined{{/eq}}{{/ne}}{{#unless @last}},{{/unless}}
+      {{/each}}
+    };
+  }
+  {{/if}}
+  {{#each hooks}}
+  component{{{case @key 'pascal'}}}() {
+    {{{json this 2 'javascript'}}}
+  }
+  {{/each}}
+  {{#unless events.change}}
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.type === 'checkbox'
+        ? event.target.checked
+        : event.target.value
+    });
+  }
+  {{/unless}}
+  {{#each events}}
+  handle{{{case @key 'pascal'}}}(event, data) {
+    {{#typeof this 'code'}}
+    event.preventDefault();
+    {{{json this 2 'javascript'}}}
+    {{else}}
+    {{#if handler}}
+    {{#ne preventDefault false}}
+    event.preventDefault();
+    {{/ne}}
+    {{{json handler 2 'javascript'}}}
+    {{else}}
+    event.preventDefault();
+    {{#each operations}}
+    {{{method}}}({{#if arguments}}{{#typeof arguments 'object'}}{
+      {{#each arguments}}
+      {{{@key}}}: {{{json this 3 'javascript'}}}{{#unless @last}},{{/unless}}
+      {{/each}}
+    }{{else}}
+      {{#each arguments}}
+      {{#typeof this 'object'}}
+      {
+        {{#each this}}
+        {{{@key}}}: {{{json this 3 'javascript'}}}{{#unless @last}},{{/unless}}
+        {{/each}}
+      }
+      {{else}}
+      {{{this}}}{{#unless @last}},{{/unless}}
+      {{/typeof}}
+      {{/each}}
+    {{/typeof}}{{/if}});
+    {{/each}}
+    {{/if}}
+    {{/typeof}}
+  }
+  {{/each}}
+  {{#if render}}
+  render() {
+    return (
+      {{{jsx render 3}}}
+    );
+  }
+  {{/if}}
+}
+{{#if props}}
+
+{{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}}.defaultProps = {
+{{#each props}}
+  {{{@key}}}: {{#if default}}{{{json default 1 'javascript'}}}{{else}}{{#eq type 'array'}}[]{{/eq}}{{#eq type 'bool'}}false{{/eq}}{{#eq type 'func'}}() => {}{{/eq}}{{#eq type 'null'}}null{{/eq}}{{#eq type 'number'}}-1{{/eq}}{{#eq type 'object'}}{}{{/eq}}{{#eq type 'string'}}''{{/eq}}{{#eq type 'undefined'}}undefined{{/eq}}{{/if}}{{#unless @last}},{{/unless}}
+{{/each}}
+};
+
+{{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}}.propTypes = {
+{{#each props}}
+  {{{@key}}}: PropTypes.{{{type}}}{{#unless @last}},{{/unless}}
+{{/each}}
+};
+{{/if}}
+
+{{#if stateProps}}
+function mapStateToProps(state) {
+  return {
+    {{#each stateProps}}
+    {{{@key}}}: state.{{{state}}}{{#unless @last}},{{/unless}}
+    {{/each}}
+  };
+}
+
+{{/if}}
+{{#if dispatchProps}}
+function mapDispatchToProps(dispatch) {
+  return {
+    {{#each dispatchProps}}
+    {{{@key}}}: (...args) => {
+      dispatch(
+        {{{dispatch}}}Action(...args)
+      );
+    }{{#unless @last}},{{/unless}}
+    {{/each}}
+  };
+}
+
+{{/if}}
+{{#some stateProps dispatchProps}}
+export default connect({{#if stateProps}}mapStateToProps{{else}}{{#if dispatchProps}}null{{/if}}{{/if}}{{#if dispatchProps}}, mapDispatchToProps{{/if}})({{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}});
+{{/some}}
+{{#none stateProps dispatchProps}}
+export default {{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}};
+{{/none}}

@@ -1,0 +1,17 @@
+'*':
+  selectors:
+    - '*'
+  boxSizing: border-box
+containers:
+  selectors:
+    - body
+    - html
+  margin: 0
+link:
+  selectors:
+    - a
+  textDecoration: none
+linkHover:
+  selectors:
+    - 'a:hover'
+  textDecoration: underline

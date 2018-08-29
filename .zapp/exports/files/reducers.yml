@@ -1,0 +1,12 @@
+template: reducer
+engine: handlebars
+iterator: reducers
+mapping:
+  actions: ./actions
+  state: ./state
+  key: '@key'
+filename:
+  engine: handlebars
+  template: 'src/reducers/{{{case name ''camel''}}}.js'
+  mapping:
+    name: '@key'

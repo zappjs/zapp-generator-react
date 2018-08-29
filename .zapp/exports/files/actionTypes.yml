@@ -1,0 +1,5 @@
+filename: src/actionTypes.js
+mapping:
+  actionTypes: /actionTypes
+engine: handlebars
+template: actionTypes

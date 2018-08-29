@@ -1,0 +1,10 @@
+filename: src/index.hbs
+engine: handlebars
+template: index
+mapping:
+  analytics: /analytics
+  description: /app/description
+  homepage: /app/url
+  image: /app/image
+  title: /app/title
+  type: /app/type

@@ -1,0 +1,55 @@
+import React from 'react';
+import thunk from 'redux-thunk';
+
+import { render } from 'react-dom';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { IndexRoute, Router, Route, browserHistory } from 'react-router';
+import { routerMiddleware, routerReducer, syncHistoryWithStore } from 'react-router-redux';
+
+{{#each pages}}
+import {{{case @key 'pascal'}}}Page from './pages/{{{@key}}}/{{{case @key 'pascal'}}}';
+
+
+{{/each}}
+{{#each reducers}}
+import {{{@key}}}Reducer from './reducers/{{{@key}}}';
+
+{{/each}}
+{{#each templates}}
+import {{{case @key 'pascal'}}}Template from './templates/{{{@key}}}/{{{case @key 'pascal'}}}';
+
+{{/each}}
+import './App.sass';
+
+const router = routerMiddleware(browserHistory);
+
+const store = createStore(
+  combineReducers({
+    routing: routerReducer,
+    {{#each reducers}}
+    {{{@key}}}: {{{@key}}}Reducer{{#unless @last}},{{/unless}}
+    {{/each}}
+  }),
+  applyMiddleware(
+    thunk,
+    router
+  )
+);
+
+const history = syncHistoryWithStore(browserHistory, store);
+
+render(
+  <Provider store={store}>
+    <Router history={history}>
+      {{#each routes}}
+      <Route path="{{{@key}}}" component={ {{{case template 'pascal'}}}Template }{{#if paths}}>
+        {{#each paths}}
+        <{{#if index}}Index{{/if}}Route {{#unless index}}path="{{{@key}}}" {{/unless}}component={ {{{case page 'pascal'}}}Page } />
+        {{/each}}
+      </Route>{{else}} />{{/if}}
+      {{/each}}
+    </Router>
+  </Provider>,
+  document.getElementById('app')
+);

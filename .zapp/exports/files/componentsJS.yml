@@ -1,0 +1,32 @@
+engine: handlebars
+iterator: components
+template: component
+filename:
+  engine: handlebars
+  template: 'src/components/{{{case name ''kebab''}}}/{{{case name ''pascal''}}}.jsx'
+  mapping:
+    name: '@key'
+mapping:
+  name: ./name
+  allImports: /imports
+  imports: ./imports
+  hooks: ./hooks
+  key: '@key'
+  events: ./events
+  props: ./props
+  render: ./render
+  state: ./state
+  stateProps:
+    path: ./props
+    filter:
+      state:
+        minLength: 1
+        type: string
+        required: true
+  dispatchProps:
+    path: ./props
+    filter:
+      dispatch:
+        minLength: 1
+        type: string
+        required: true
