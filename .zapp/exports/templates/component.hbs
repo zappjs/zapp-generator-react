@@ -13,7 +13,7 @@ import styles from './{{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if
 {{#if imports}}
 
 {{#each imports}}
-{{#import this ../allImports '../../..'}}
+{{#import this ../allImports '../..'}}
 import {{{name}}} from '{{{module}}}';
 {{/import}}
 {{/each}}
@@ -83,7 +83,9 @@ class {{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}} extends Compo
   {{#if render}}
   render() {
     return (
-      {{{jsx render 3}}}
+      <Fragment>
+        {{{jsx render 3}}}
+      </Fragment>
     );
   }
   {{/if}}

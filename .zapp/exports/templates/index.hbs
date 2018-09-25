@@ -22,6 +22,9 @@
   {{#if homepage}}
   <meta property="og:url" content="{{{homepage}}}" />
   {{/if}}
+  {{#each stylesheets}}
+  <link rel="stylesheet"{{#if href}} href="{{{href}}}"{{/if}}{{#if integrity}} integrity="{{{integrity}}}"{{/if}}{{#if crossorigin}} crossorigin="{{{crossorigin}}}"{{/if}} />
+  {{/each}}
   {{#if analytics}}
   {{#eq analytics.type 'ga'}}
   <script async src="https://www.googletagmanager.com/gtag/js?id={{{analytics.id}}}"></script>

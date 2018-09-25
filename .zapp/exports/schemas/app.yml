@@ -1,0 +1,11 @@
+stylesheets:
+  type: object
+  additionalProperties:
+    type: object
+    properties:
+      href:
+        type: string
+      integrity:
+        type: string
+      crossorigin:
+        type: string

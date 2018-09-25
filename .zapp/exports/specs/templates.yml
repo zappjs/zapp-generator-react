@@ -1,1 +1,2 @@
-main: {}
+main:
+  render: <Fragment>{this.props.children}</Fragment>
