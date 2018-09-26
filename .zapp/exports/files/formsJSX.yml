@@ -16,6 +16,7 @@ mapping:
   props: ./props
   render: ./render
   state: ./state
+  withRouter: ./withRouter
   stateProps:
     path: ./props
     filter:

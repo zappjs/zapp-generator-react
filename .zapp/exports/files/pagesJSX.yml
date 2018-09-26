@@ -16,6 +16,7 @@ mapping:
   imports: ./imports
   allImports: /imports
   state: ./state
+  withRouter: ./withRouter
   stateProps:
     path: ./props
     filter:

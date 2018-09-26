@@ -4,6 +4,9 @@ import React, { Component, Fragment } from 'react';
 {{#if props}}
 import { connect } from 'react-redux';
 {{/if}}
+{{#if withRouter}}
+import { withRouter } from 'react-router';
+{{/if}}
 
 {{#each dispatchProps}}
 import {{{case dispatch 'camel'}}}Action from '../../actions/{{{case dispatch 'camel'}}}';
@@ -130,8 +133,8 @@ function mapDispatchToProps(dispatch) {
 
 {{/if}}
 {{#some stateProps dispatchProps}}
-export default connect({{#if stateProps}}mapStateToProps{{else}}{{#if dispatchProps}}null{{/if}}{{/if}}{{#if dispatchProps}}, mapDispatchToProps{{/if}})({{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}});
+export default {{#if withRouter}}withRouter({{/if}}connect({{#if stateProps}}mapStateToProps{{else}}{{#if dispatchProps}}null{{/if}}{{/if}}{{#if dispatchProps}}, mapDispatchToProps{{/if}})({{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}}){{#if withRouter}}){{/if}};
 {{/some}}
 {{#none stateProps dispatchProps}}
-export default {{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}};
+export default {{#if withRouter}}withRouter({{/if}}{{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}}{{#if withRouter}}){{/if}};
 {{/none}}

@@ -19,6 +19,12 @@ additionalProperties:
             type: boolean
           default:
             type: string
+          state:
+            description: maps this prop to a state
+            type: string
+          dispatch:
+            description: maps this prop to a dispatch
+            type: string
     render:
       type: code
       mode: jsx
@@ -43,8 +49,13 @@ additionalProperties:
         didMount:
           mode: javascript
           type: code
+        willMount:
+          mode: javascript
+          type: code
     imports:
       type: array
       items:
         type: string
     styles: /styles
+    withRouter:
+      type: boolean

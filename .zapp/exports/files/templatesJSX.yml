@@ -12,6 +12,7 @@ mapping:
   imports: ./imports
   render: ./render
   state: ./state
+  withRouter: ./withRouter
   stateProps:
     path: ./props
     filter:

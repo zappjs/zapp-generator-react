@@ -1,10 +1,11 @@
 import React from 'react';
 import thunk from 'redux-thunk';
 
+import { createBrowserHistory } from 'history';
 import { render } from 'react-dom';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { IndexRoute, Router, Route, browserHistory } from 'react-router';
+import { Router, Route } from 'react-router';
 import { routerMiddleware, routerReducer, syncHistoryWithStore } from 'react-router-redux';
 
 {{#each pages}}
@@ -22,7 +23,8 @@ import {{{case @key 'pascal'}}}Template from './templates/{{{@key}}}/{{{case @ke
 {{/each}}
 import './App.sass';
 
-const router = routerMiddleware(browserHistory);
+const history = createBrowserHistory();
+const router = routerMiddleware(history);
 
 const store = createStore(
   combineReducers({
@@ -37,17 +39,15 @@ const store = createStore(
   )
 );
 
-const history = syncHistoryWithStore(browserHistory, store);
-
 render(
   <Provider store={store}>
     <Router history={history}>
       {{#each routes}}
-      <Route path="{{{@key}}}" component={ {{{case template 'pascal'}}}Template }{{#if paths}}>
+      <{{{case template 'pascal'}}}Template{{#if paths}}>
         {{#each paths}}
-        <{{#if index}}Index{{/if}}Route {{#unless index}}path="{{{@key}}}" {{/unless}}component={ {{{case page 'pascal'}}}Page } />
+        <Route path="{{#if index}}/{{else}}{{@key}}{{/if}}" component={ {{{case page 'pascal'}}}Page } {{#if index}}exact{{/if}} />
         {{/each}}
-      </Route>{{else}} />{{/if}}
+      </{{{case template 'pascal'}}}Template>{{else}} />{{/if}}
       {{/each}}
     </Router>
   </Provider>,
