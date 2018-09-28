@@ -8,19 +8,27 @@ import { Provider } from 'react-redux';
 import { Router, Route } from 'react-router';
 import { routerMiddleware, routerReducer, syncHistoryWithStore } from 'react-router-redux';
 
+{{#if pages}}
+// pages
 {{#each pages}}
 import {{{case @key 'pascal'}}}Page from './pages/{{{@key}}}/{{{case @key 'pascal'}}}';
-
-
 {{/each}}
+
+{{/if}}
+{{#if reducers}}
+// reducers
 {{#each reducers}}
 import {{{@key}}}Reducer from './reducers/{{{@key}}}';
-
 {{/each}}
+
+{{/if}}
+{{#if templates}}
+// templates
 {{#each templates}}
 import {{{case @key 'pascal'}}}Template from './templates/{{{@key}}}/{{{case @key 'pascal'}}}';
-
 {{/each}}
+
+{{/if}}
 import './App.sass';
 
 const history = createBrowserHistory();

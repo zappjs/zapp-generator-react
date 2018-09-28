@@ -86,9 +86,13 @@ class {{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}} extends Compo
   {{#if render}}
   render() {
     return (
+      {{#gt (length (keys render)) 1}}
       <Fragment>
-        {{{jsx render 3}}}
+        {{{jsx render 4}}}
       </Fragment>
+      {{else}}
+      {{{jsx render 3}}}
+      {{/gt}}
     );
   }
   {{/if}}

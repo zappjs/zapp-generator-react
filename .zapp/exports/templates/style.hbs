@@ -11,14 +11,14 @@
 {{#each selectors}}{{{this}}}{{#unless @last}}, {{/unless}}{{/each}}
   {{#each this}}
   {{#ne @key 'selectors'}}
-  {{{case @key 'kebab'}}}: {{{this}}}
+  {{{case @key 'kebab'}}}: {{#every (eq @key 'fontFamily') (includes this ' ')}}'{{{this}}}'{{else}}{{{this}}}{{/every}}
   {{/ne}}
   {{/each}}
 {{else}}
 {{#ne @key '@import'}}
 .{{{@key}}}
   {{#each this}}
-  {{{case @key 'kebab'}}}: {{{this}}}
+  {{{case @key 'kebab'}}}: {{#every (eq @key 'fontFamily') (includes this ' ')}}'{{{this}}}'{{else}}{{{this}}}{{/every}}
   {{/each}}
 {{/ne}}
 {{/if}}
