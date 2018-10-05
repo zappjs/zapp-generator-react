@@ -50,7 +50,9 @@ class {{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}} extends Compo
   {{#each events}}
   handle{{{case @key 'pascal'}}}(event, data) {
     {{#typeof this 'code'}}
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
     {{{json this 2 'javascript'}}}
     {{else}}
     {{#if handler}}

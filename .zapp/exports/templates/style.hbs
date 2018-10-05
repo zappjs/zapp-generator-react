@@ -15,11 +15,40 @@
   {{/ne}}
   {{/each}}
 {{else}}
-{{#ne @key '@import'}}
+{{#neAll @key '@import' '@mobile' '@tablet'}}
 .{{{@key}}}
   {{#each this}}
+  {{#eq (substr @key 0 1) ':'}}
+  &{{{@key}}}
+    {{#each this}}
+    {{{case @key 'kebab'}}}: {{#every (eq @key 'fontFamily') (includes this ' ')}}'{{{this}}}'{{else}}{{{this}}}{{/every}}
+    {{/each}}
+  {{else}}
   {{{case @key 'kebab'}}}: {{#every (eq @key 'fontFamily') (includes this ' ')}}'{{{this}}}'{{else}}{{{this}}}{{/every}}
+  {{/eq}}
   {{/each}}
-{{/ne}}
+{{/neAll}}
 {{/if}}
 {{/each}}
+{{#has styles '@tablet'}}
+
+// tablet
+@media (max-width: 768px)
+  {{#each (get styles '@tablet')}}
+  .{{{@key}}}
+    {{#each this}}
+    {{{case @key 'kebab'}}}: {{#every (eq @key 'fontFamily') (includes this ' ')}}'{{{this}}}'{{else}}{{{this}}}{{/every}}
+    {{/each}}
+  {{/each}}
+{{/has}}
+{{#has styles '@mobile'}}
+
+// mobile
+@media (max-width: 576px)
+  {{#each (get styles '@mobile')}}
+  .{{{@key}}}
+    {{#each this}}
+    {{{case @key 'kebab'}}}: {{#every (eq @key 'fontFamily') (includes this ' ')}}'{{{this}}}'{{else}}{{{this}}}{{/every}}
+    {{/each}}
+  {{/each}}
+{{/has}}
