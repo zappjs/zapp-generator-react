@@ -9,6 +9,7 @@ mapping:
   hooks: ./hooks
   key: '@key'
   name: ./name
+  type: Template
   imports: ./imports
   render: ./render
   state: ./state

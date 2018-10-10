@@ -8,6 +8,7 @@ filename:
     name: '@key'
 mapping:
   name: ./name
+  type: Form
   allImports: /imports
   imports: ./imports
   hooks: ./hooks

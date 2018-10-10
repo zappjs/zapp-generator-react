@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import thunk from 'redux-thunk';
 
 import { createBrowserHistory } from 'history';
@@ -47,17 +47,22 @@ const store = createStore(
   )
 );
 
-render(
-  <Provider store={store}>
-    <Router history={history}>
-      {{#each routes}}
-      <{{{case template 'pascal'}}}Template{{#if paths}}>
-        {{#each paths}}
-        <Route path="{{#if index}}/{{else}}{{@key}}{{/if}}" component={ {{{case page 'pascal'}}}Page } {{#if index}}exact{{/if}} />
-        {{/each}}
-      </{{{case template 'pascal'}}}Template>{{else}} />{{/if}}
-      {{/each}}
-    </Router>
-  </Provider>,
-  document.getElementById('app')
-);
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Router history={history} onUpdate={() => { window.scrollTo(100, 100); window.scrollTo(0, 0); }}>
+          {{#each routes}}
+          <{{{case template 'pascal'}}}Template{{#if paths}}>
+            {{#each paths}}
+            <Route path="{{#if index}}/{{else}}{{@key}}{{/if}}" component={ {{{case page 'pascal'}}}Page } exact />
+            {{/each}}
+          </{{{case template 'pascal'}}}Template>{{else}} />{{/if}}
+          {{/each}}
+        </Router>
+      </Provider>
+    );
+  }
+}
+
+export default App;

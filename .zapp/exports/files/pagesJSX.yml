@@ -11,6 +11,7 @@ mapping:
   events: ./events
   key: '@key'
   name: ./name
+  type: Page
   props: ./props
   hooks: ./hooks
   imports: ./imports

@@ -22,7 +22,7 @@ import {{{name}}} from '{{{module}}}';
 {{/each}}
 {{/if}}
 
-class {{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}} extends Component {
+class {{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}}{{#ne type 'Component'}}{{{type}}}{{/ne}} extends Component {
   {{#if state}}
   constructor(props) {
     super(props);
@@ -101,13 +101,13 @@ class {{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}} extends Compo
 }
 {{#if props}}
 
-{{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}}.defaultProps = {
+{{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}}{{#ne type 'Component'}}{{{type}}}{{/ne}}.defaultProps = {
 {{#each props}}
   {{{@key}}}: {{#if default}}{{{json default 1 'javascript'}}}{{else}}{{#eq type 'array'}}[]{{/eq}}{{#eq type 'bool'}}false{{/eq}}{{#eq type 'func'}}() => {}{{/eq}}{{#eq type 'null'}}null{{/eq}}{{#eq type 'number'}}-1{{/eq}}{{#eq type 'object'}}{}{{/eq}}{{#eq type 'string'}}''{{/eq}}{{#eq type 'undefined'}}undefined{{/eq}}{{/if}}{{#unless @last}},{{/unless}}
 {{/each}}
 };
 
-{{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}}.propTypes = {
+{{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}}{{#ne type 'Component'}}{{{type}}}{{/ne}}.propTypes = {
 {{#each props}}
   {{{@key}}}: PropTypes.{{{type}}}{{#unless @last}},{{/unless}}
 {{/each}}
@@ -139,8 +139,8 @@ function mapDispatchToProps(dispatch) {
 
 {{/if}}
 {{#some stateProps dispatchProps}}
-export default {{#if withRouter}}withRouter({{/if}}connect({{#if stateProps}}mapStateToProps{{else}}{{#if dispatchProps}}null{{/if}}{{/if}}{{#if dispatchProps}}, mapDispatchToProps{{/if}})({{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}}){{#if withRouter}}){{/if}};
+export default {{#if withRouter}}withRouter({{/if}}connect({{#if stateProps}}mapStateToProps{{else}}{{#if dispatchProps}}null{{/if}}{{/if}}{{#if dispatchProps}}, mapDispatchToProps{{/if}})({{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}}{{#ne type 'Component'}}{{{type}}}{{/ne}}){{#if withRouter}}){{/if}};
 {{/some}}
 {{#none stateProps dispatchProps}}
-export default {{#if withRouter}}withRouter({{/if}}{{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}}{{#if withRouter}}){{/if}};
+export default {{#if withRouter}}withRouter({{/if}}{{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}}{{#ne type 'Component'}}{{{type}}}{{/ne}}{{#if withRouter}}){{/if}};
 {{/none}}

@@ -8,6 +8,7 @@ filename:
     name: '@key'
 mapping:
   name: ./name
+  type: Component
   allImports: /imports
   imports: ./imports
   hooks: ./hooks
