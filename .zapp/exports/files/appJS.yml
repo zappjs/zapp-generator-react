@@ -6,3 +6,4 @@ mapping:
   reducers: /reducers
   pages: /pages
   templates: /templates
+  title: /app/title

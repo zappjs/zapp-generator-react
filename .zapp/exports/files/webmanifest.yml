@@ -1,0 +1,5 @@
+filename: src/static/site.webmanifest
+template: webmanifest
+engine: handlebars
+mapping:
+  name: /app/name

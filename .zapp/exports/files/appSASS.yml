@@ -2,4 +2,5 @@ filename: src/App.sass
 engine: handlebars
 template: style
 mapping:
+  fonts: /fonts
   styles: /styles

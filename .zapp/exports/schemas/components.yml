@@ -4,6 +4,8 @@ additionalProperties:
   properties:
     name:
       type: string
+    title:
+      type: string
     props:
       type: object
       additionalProperties:

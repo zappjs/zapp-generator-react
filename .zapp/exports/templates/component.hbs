@@ -1,6 +1,9 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Component, Fragment } from 'react';
+{{#if title}}
+import Helmet from 'react-helmet';
+{{/if}}
 {{#if props}}
 import { connect } from 'react-redux';
 {{/if}}
@@ -88,13 +91,14 @@ class {{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if}}{{#ne type 'Co
   {{#if render}}
   render() {
     return (
-      {{#gt (length (keys render)) 1}}
       <Fragment>
+        {{#if title}}
+        <Helmet>
+          <title>{{{title}}}</title>
+        </Helmet>
+        {{/if}}
         {{{jsx render 4}}}
       </Fragment>
-      {{else}}
-      {{{jsx render 3}}}
-      {{/gt}}
     );
   }
   {{/if}}

@@ -5,6 +5,12 @@ additionalProperties:
     template:
       type: string
       description: The route's template.
+    error:
+      type: object
+      properties:
+        page:
+          type: string
+          description: The page for the path.
     paths:
       type: object
       additionalProperties:

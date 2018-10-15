@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import Helmet from 'react-helmet';
 import thunk from 'redux-thunk';
 
 import { createBrowserHistory } from 'history';
 import { render } from 'react-dom';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { Router, Route } from 'react-router';
+import { Router, Route, Switch } from 'react-router';
 import { routerMiddleware, routerReducer, syncHistoryWithStore } from 'react-router-redux';
 
 {{#if pages}}
 // pages
 {{#each pages}}
-import {{{case @key 'pascal'}}}Page from './pages/{{{@key}}}/{{{case @key 'pascal'}}}';
+import {{{case @key 'pascal'}}}Page from './pages/{{{case @key 'kebab'}}}/{{{case @key 'pascal'}}}';
 {{/each}}
 
 {{/if}}
@@ -25,13 +26,13 @@ import {{{@key}}}Reducer from './reducers/{{{@key}}}';
 {{#if templates}}
 // templates
 {{#each templates}}
-import {{{case @key 'pascal'}}}Template from './templates/{{{@key}}}/{{{case @key 'pascal'}}}';
+import {{{case @key 'pascal'}}}Template from './templates/{{{case @key 'kebab'}}}/{{{case @key 'pascal'}}}';
 {{/each}}
 
 {{/if}}
 import './App.sass';
 
-const history = createBrowserHistory();
+const history = createBrowserHistory({ basename: '/' });
 const router = routerMiddleware(history);
 
 const store = createStore(
@@ -52,13 +53,23 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router history={history} onUpdate={() => { window.scrollTo(100, 100); window.scrollTo(0, 0); }}>
-          {{#each routes}}
-          <{{{case template 'pascal'}}}Template{{#if paths}}>
-            {{#each paths}}
-            <Route path="{{#if index}}/{{else}}{{@key}}{{/if}}" component={ {{{case page 'pascal'}}}Page } exact />
+          <Fragment>
+            <Helmet
+              titleTemplate="%s | {{{title}}}"
+            />
+            {{#each routes}}
+            <{{{case template 'pascal'}}}Template{{#if paths}}>
+              <Switch>
+                {{#each paths}}
+                <Route path="{{#if index}}/{{else}}{{@key}}{{/if}}" component={ {{{case page 'pascal'}}}Page }{{#if index}} exact{{/if}} />
+                {{/each}}
+                {{#if error}}
+                <Route component={ {{{case error.page 'pascal'}}}Page } />
+                {{/if}}
+              </Switch>
+            </{{{case template 'pascal'}}}Template>{{else}} />{{/if}}
             {{/each}}
-          </{{{case template 'pascal'}}}Template>{{else}} />{{/if}}
-          {{/each}}
+          </Fragment>
         </Router>
       </Provider>
     );
