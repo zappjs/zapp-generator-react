@@ -8,4 +8,5 @@ additionalProperties:
         type: object
     dispatch:
       type: object
-      additionalProperties: {}
+      additionalProperties:
+        type: string
