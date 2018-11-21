@@ -6,7 +6,7 @@ import { createBrowserHistory } from 'history';
 import { render } from 'react-dom';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { Router, Route, Switch } from 'react-router';
+import { Router, Route, Switch, withRouter } from 'react-router';
 import { routerMiddleware, routerReducer, syncHistoryWithStore } from 'react-router-redux';
 
 {{#if pages}}
@@ -48,12 +48,26 @@ const store = createStore(
   )
 );
 
+class ScrollToTopComponent extends Component {
+  componentDidUpdate(prevProps) {
+    if (this.props.location !== prevProps.location) {
+      window.scrollTo(0, 0);
+    }
+  }
+
+  render() {
+    return this.props.children;
+  }
+}
+
+const ScrollToTop = withRouter(ScrollToTopComponent);
+
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router history={history} onUpdate={() => { window.scrollTo(100, 100); window.scrollTo(0, 0); }}>
-          <Fragment>
+        <Router history={history}>
+          <ScrollToTop>
             <Helmet
               titleTemplate="%s | {{{title}}}"
             />
@@ -61,7 +75,7 @@ class App extends Component {
             <{{{case template 'pascal'}}}Template{{#if paths}}>
               <Switch>
                 {{#each paths}}
-                <Route path="{{#if index}}/{{else}}{{@key}}{{/if}}" component={ {{{case page 'pascal'}}}Page }{{#if index}} exact{{/if}} />
+                <Route path="{{#if index}}/{{else}}/{{@key}}{{/if}}" component={ {{{case page 'pascal'}}}Page }{{#if index}} exact{{/if}} />
                 {{/each}}
                 {{#if error}}
                 <Route component={ {{{case error.page 'pascal'}}}Page } />
@@ -69,7 +83,7 @@ class App extends Component {
               </Switch>
             </{{{case template 'pascal'}}}Template>{{else}} />{{/if}}
             {{/each}}
-          </Fragment>
+          </ScrollToTop>
         </Router>
       </Provider>
     );

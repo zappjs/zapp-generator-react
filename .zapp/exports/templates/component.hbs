@@ -19,7 +19,7 @@ import styles from './{{#if name}}{{{name}}}{{else}}{{{case key 'pascal'}}}{{/if
 {{#if imports}}
 
 {{#each imports}}
-{{#import this ../allImports '../..'}}
+{{#import this ../allImports '../../..'}}
 import {{{name}}} from '{{{module}}}';
 {{/import}}
 {{/each}}
