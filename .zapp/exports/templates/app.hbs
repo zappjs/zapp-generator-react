@@ -75,7 +75,7 @@ class App extends Component {
             <{{{case template 'pascal'}}}Template{{#if paths}}>
               <Switch>
                 {{#each paths}}
-                <Route path="{{#if index}}/{{else}}/{{@key}}{{/if}}" component={ {{{case page 'pascal'}}}Page }{{#if index}} exact{{/if}} />
+                <Route path="{{#if index}}/{{else}}{{@key}}{{/if}}" component={ {{{case page 'pascal'}}}Page }{{#if index}} exact{{/if}} />
                 {{/each}}
                 {{#if error}}
                 <Route component={ {{{case error.page 'pascal'}}}Page } />
